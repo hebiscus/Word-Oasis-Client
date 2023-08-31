@@ -1,10 +1,12 @@
 import "./App.scss";
+import CustomRouter from "../components/CustomRouter";
+import Navbar from "../components/navbar/Navbar";
 
 function App() {
-
   return (
     <>
-      <div>hi hebi</div>
+      <Navbar />
+      <CustomRouter />
     </>
   )
 }
