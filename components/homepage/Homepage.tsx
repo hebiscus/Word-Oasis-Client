@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
 function Homepage() {
-    const [mainPost, setMainPost] = useState();
+    const [mainPost, setMainPost] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         async function getPosts() {
             setIsLoading(true);
             try {
-                const post = await fetch("https://word-oasis-api-production.up.railway.app/posts");
+                const post = await fetch("https://word-oasis-api-production.up.railway.app/posts?title=What’s this all about?", { mode: "cors" });
                 const extracted = await post.json();
                 setIsLoading(false);
                 if (!ignore) {
@@ -31,17 +31,18 @@ function Homepage() {
 
     return (
         <>
-        {/* {isLoading ? <h3>Data is loading</h3> : mainPost.blogPosts.map((post) => {
+        {/* {mainPost ?  mainPost.blogPosts.map((post) => {
             console.log(post)
             return <div></div>
-        })} */}
-        <div>
-            <div className="image-placeholder"></div>
-            <h2></h2>
-            <p></p>
-            <button>Read more</button>
-        </div>
-        <div></div>
+        }): <h3>Data is loading</h3> } */}
+        {mainPost && 
+            <div className="mainPost-container">
+                <div className="image-placeholder" />
+                <h2>{mainPost.title}</h2>
+                <p>{mainPost.content}</p>
+                <button>Read more</button>
+            </div>
+        }
         </>
     )
 }
