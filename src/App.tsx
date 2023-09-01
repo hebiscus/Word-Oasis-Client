@@ -1,7 +1,7 @@
 import "./App.scss";
-import CustomRouter from "../components/CustomRouter";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import CustomRouter from "./components/CustomRouter";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
