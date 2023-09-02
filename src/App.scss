@@ -17,6 +17,13 @@ ol, ul {
     list-style: none;
   }
   
-  img {
-    max-width: 100%;
-  }
+img {
+  max-width: 100%;
+}
+
+.image-placeholder {
+  background-color: variables.$primary;
+  min-height: 80px;
+  max-width: 100px;
+}
+
