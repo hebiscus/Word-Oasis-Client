@@ -1,15 +1,14 @@
 import "./homepage.scss";
 import { useState, useEffect } from "react";
 import { blogPostInterface } from "../../interfaces/interfaces";
+import DefaultButton from "../defButton";
 
 function Homepage() {
     const [mainPost, setMainPost] = useState<blogPostInterface | null >(null);
     const [topPosts, setTopPosts] = useState<blogPostInterface[] | null>(null);
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         async function getPosts() {
-            setIsLoading(true);
             try {
                 const [mainPostResponse, topPostsResponse] = await Promise.all([
                     fetch("https://word-oasis-api-production.up.railway.app/posts?title=What’s this all about?", { mode: "cors" }),
@@ -17,7 +16,6 @@ function Homepage() {
                 ])
                 const mainPost = await mainPostResponse.json();
                 const topPosts = await topPostsResponse.json();
-                setIsLoading(false);
                 if (!ignore) {
                     setMainPost(mainPost);
                     setTopPosts(topPosts);
@@ -40,29 +38,28 @@ function Homepage() {
 
     return (
         <>
-        {/* {mainPost ?  mainPost.blogPosts.map((post) => {
-            console.log(post)
-            return <div></div>
-        }): <h3>Data is loading</h3> } */}
         {mainPost && 
             <div className="mainPost-container">
                 <div className="image-placeholder" />
                 <h2>{mainPost.title}</h2>
                 <p>{mainPost.content}</p>
-                <button>Read more</button>
+                <DefaultButton>Read more</DefaultButton>
             </div>
         }
         {topPosts &&
-            <div className="topPosts-container">
-                {topPosts.map((post) => {
-                    return <div className="topPost-box" key={post._id}>
-                        <div className="image-placeholder" />
-                        <h2>{post.title}</h2>
-                        <p>{`${post.content.slice(0, 150)}...`}</p>
-                    </div> 
-                })
-                }
-            </div>
+            <>
+                <h2>TOP blog posts</h2>
+                <div className="topPosts-container">
+                    {topPosts.map((post) => {
+                        return <div className="topPost-box" key={post._id}>
+                            <div className="image-placeholder" />
+                            <h2>{post.title}</h2>
+                            <p>{`${post.content.slice(0, 150)}...`}</p>
+                        </div> 
+                    })
+                    }
+                </div>
+            </>
         }
         </>
     )
