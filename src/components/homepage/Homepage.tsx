@@ -1,3 +1,4 @@
+import "./homepage.scss";
 import { useState, useEffect } from "react";
 import { blogPostInterface } from "../../interfaces/interfaces";
 
@@ -49,6 +50,18 @@ function Homepage() {
                 <h2>{mainPost.title}</h2>
                 <p>{mainPost.content}</p>
                 <button>Read more</button>
+            </div>
+        }
+        {topPosts &&
+            <div className="topPosts-container">
+                {topPosts.map((post) => {
+                    return <div className="topPost-box" key={post._id}>
+                        <div className="image-placeholder" />
+                        <h2>{post.title}</h2>
+                        <p>{`${post.content.slice(0, 150)}...`}</p>
+                    </div> 
+                })
+                }
             </div>
         }
         </>
