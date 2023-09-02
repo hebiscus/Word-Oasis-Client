@@ -9,7 +9,22 @@ function Footer() {
                     <input type="email" placeholder="Enter your email"></input>
                     <DefaultButton>Subscribe</DefaultButton>
                 </form>
-                <p>for more literary inspiration</p>
+                <p>For more literary inspiration</p>
+            </div>
+            <div className="footerInfo">
+                <p>Word Oasis</p>
+                <p>Your place to dive into word's refinement</p>
+            </div>
+            <div className="footerLinks">
+                <a>About me</a>
+                <a>Resources</a>
+                <a>Social</a>
+                <a>Legal</a>
+                <a>Press</a>
+                <a>News</a>
+                <a>Contact</a>
+                <a>LinkedIn</a>
+                <a>Privacy</a>
             </div>
         </div>
     )
