@@ -1,6 +1,7 @@
 import "./blogpost.scss";
 import { useState, useEffect } from "react";
 import { blogPostInterface } from "../../interfaces/interfaces";
+import { Link } from "react-router-dom";
 
 function BlogPosts() {
     const [allPosts, setAllPosts] = useState<blogPostInterface[] | null>(null)
@@ -37,6 +38,9 @@ function BlogPosts() {
                             <div className="image-placeholder" />
                             <h2>{post.title}</h2>
                             <p>{`${post.content.slice(0, 150)}...`}</p>
+                            <Link to={post._id}>
+                                <button>Read more</button>
+                            </Link>
                     </div>
                 })}
             </div>}

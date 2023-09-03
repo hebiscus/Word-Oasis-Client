@@ -2,6 +2,7 @@ import "./homepage.scss";
 import { useState, useEffect } from "react";
 import { blogPostInterface } from "../../interfaces/interfaces";
 import DefaultButton from "../defButton";
+import { Link } from "react-router-dom";
 
 function Homepage() {
     const [mainPost, setMainPost] = useState<blogPostInterface | null >(null);
@@ -55,6 +56,9 @@ function Homepage() {
                             <div className="image-placeholder" />
                             <h2>{post.title}</h2>
                             <p>{`${post.content.slice(0, 150)}...`}</p>
+                            <Link to={`posts/${post._id}`}>
+                                <button>Read more</button>
+                            </Link>
                         </div> 
                     })
                     }
