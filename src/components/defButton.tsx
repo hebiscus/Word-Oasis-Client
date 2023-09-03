@@ -1,5 +1,5 @@
 
-function DefaultButton({children}) {
+function DefaultButton({children}: {children: string}) {
     return (
         <button>{children}</button>
     )
