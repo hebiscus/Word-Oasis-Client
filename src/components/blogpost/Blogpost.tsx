@@ -7,6 +7,8 @@ function Blogpost() {
     const { postId } = useParams();
     const [blogPost, setBlogpPost] = useState<blogPostInterface | null>(null);
     const [comments, setComments] = useState<commentsResInterface | null>(null);
+    const [commentAuthor, setCommentAuthor] = useState("");
+    const [commentContent, setCommentContent] = useState("");
 
     useEffect(() => {
         async function getData() {
@@ -38,7 +40,26 @@ function Blogpost() {
 
     }, [postId])
 
-
+    const submitComment = (async(e: React.SyntheticEvent) => {
+        e.preventDefault();
+        console.log(commentAuthor);
+        console.log(commentContent);
+        try {
+            await fetch(`https://word-oasis-api-production.up.railway.app/posts/${postId}/comments`, {
+                method:'POST',
+                body: JSON.stringify({
+                    author: commentAuthor,
+                    content: commentContent,
+                }),
+                headers: { 'Content-Type': 'application/json' },
+            }).then(() => {
+                setCommentAuthor("")
+                setCommentContent("")
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    })
 
     return (
         <>
@@ -57,7 +78,14 @@ function Blogpost() {
                     </div>
                 })}
             </div>
-            }         
+            }     
+            <form>
+                <label htmlFor="author">By:</label>
+                <input type="text" id="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor}></input>
+                <label htmlFor="comment">Comment:</label>
+                <input type="text" onChange={e => setCommentContent(e.target.value)} value={commentContent}></input>
+                <button type="submit" onClick={submitComment}>Submit comment</button>
+            </form>    
         </>
     )
 }
