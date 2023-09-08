@@ -44,6 +44,11 @@ function Blogpost() {
         e.preventDefault();
         console.log(commentAuthor);
         console.log(commentContent);
+        if (!commentAuthor || !commentContent) {
+            console.log("returned")
+            return
+        }
+
         try {
             await fetch(`https://word-oasis-api-production.up.railway.app/posts/${postId}/comments`, {
                 method:'POST',
@@ -78,13 +83,14 @@ function Blogpost() {
                     </div>
                 })}
             </div>
-            }     
-            <form>
+            }   
+            <h4>Any comments? Share your thoughts:</h4>  
+            <form method="POST" action="">
                 <label htmlFor="author">By:</label>
-                <input type="text" id="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor}></input>
+                <input type="text" id="author" name="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor} required />
                 <label htmlFor="comment">Comment:</label>
-                <input type="text" onChange={e => setCommentContent(e.target.value)} value={commentContent}></input>
-                <button type="submit" onClick={submitComment}>Submit comment</button>
+                <input type="text" name="comment" onChange={e => setCommentContent(e.target.value)} value={commentContent} required />
+                <button type="submit" onSubmit={submitComment}>Submit comment</button>
             </form>    
         </>
     )
