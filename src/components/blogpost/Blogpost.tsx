@@ -40,15 +40,15 @@ function Blogpost() {
 
     }, [postId])
 
-    const submitComment = (async(e: React.SyntheticEvent) => {
-        e.preventDefault();
+    const submitComment = (async(event: React.FormEvent) => {
+        event.preventDefault();
         console.log(commentAuthor);
         console.log(commentContent);
         if (!commentAuthor || !commentContent) {
             console.log("returned")
             return
         }
-
+        
         try {
             await fetch(`https://word-oasis-api-production.up.railway.app/posts/${postId}/comments`, {
                 method:'POST',
@@ -85,12 +85,12 @@ function Blogpost() {
             </div>
             }   
             <h4>Any comments? Share your thoughts:</h4>  
-            <form method="POST" action="">
+            <form onSubmit={event => submitComment(event)}>
                 <label htmlFor="author">By:</label>
-                <input type="text" id="author" name="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor} required />
+                <input type="text" id="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor} required />
                 <label htmlFor="comment">Comment:</label>
-                <input type="text" name="comment" onChange={e => setCommentContent(e.target.value)} value={commentContent} required />
-                <button type="submit" onSubmit={submitComment}>Submit comment</button>
+                <input type="text" id="comment" onChange={e => setCommentContent(e.target.value)} value={commentContent} required />
+                <button type="submit">Submit comment</button>
             </form>    
         </>
     )
