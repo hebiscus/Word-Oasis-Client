@@ -21,3 +21,11 @@ export interface commentInterface {
     creationDate: string,
     __v: number
 }
+
+export interface errorMsgInterface {
+    location: string,
+    msg: string,
+    path: string,
+    type: string,
+    value: string
+}

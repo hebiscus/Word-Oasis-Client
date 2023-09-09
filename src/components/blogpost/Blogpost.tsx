@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./blogpost.scss";
-import { blogPostInterface, commentsResInterface } from "../../interfaces/interfaces";
+import { blogPostInterface, commentsResInterface, errorMsgInterface } from "../../interfaces/interfaces";
 import { useParams } from "react-router-dom";
 
 function Blogpost() {
@@ -9,6 +9,7 @@ function Blogpost() {
     const [comments, setComments] = useState<commentsResInterface | null>(null);
     const [commentAuthor, setCommentAuthor] = useState("");
     const [commentContent, setCommentContent] = useState("");
+    const [errorMessages, setErrorMessages] = useState<errorMsgInterface[]>([]);
 
     useEffect(() => {
         async function getData() {
@@ -50,17 +51,20 @@ function Blogpost() {
         }
         
         try {
-            await fetch(`https://word-oasis-api-production.up.railway.app/posts/${postId}/comments`, {
+            const commentsResponse = await fetch(`https://word-oasis-api-production.up.railway.app/posts/${postId}/comments`, {
                 method:'POST',
                 body: JSON.stringify({
                     author: commentAuthor,
                     content: commentContent,
                 }),
                 headers: { 'Content-Type': 'application/json' },
-            }).then(() => {
-                setCommentAuthor("")
-                setCommentContent("")
             })
+            const responseData = await commentsResponse.json();
+            if (responseData.errors) {
+                    setErrorMessages(responseData.errors);
+            }
+            setCommentAuthor("");
+            setCommentContent("");
         } catch(err) {
             console.log(err);
         }
@@ -84,7 +88,10 @@ function Blogpost() {
                 })}
             </div>
             }   
-            <h4>Any comments? Share your thoughts:</h4>  
+            <h4>Any comments? Share your thoughts:</h4>
+            {errorMessages && errorMessages.map((errMsg) => {
+                return <div key={errMsg.path}>{errMsg.msg}</div>
+            })}
             <form onSubmit={event => submitComment(event)}>
                 <label htmlFor="author">By:</label>
                 <input type="text" id="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor} required />
