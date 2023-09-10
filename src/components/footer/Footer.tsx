@@ -1,4 +1,6 @@
 import DefaultButton from "../defButton";
+import "./footer.scss";
+
 
 function Footer() {
     return (

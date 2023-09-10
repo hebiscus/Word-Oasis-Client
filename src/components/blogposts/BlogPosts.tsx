@@ -35,7 +35,7 @@ function BlogPosts() {
             <div className="allPosts-container">
                 {allPosts.map((post) => {
                     return <div className="post-container" key={post._id}>
-                            <div className="image-placeholder" />
+                            {post.imageURL ? <img src={post.imageURL} /> : <div className="image-placeholder" />}
                             <h2>{post.title}</h2>
                             <p>{`${post.content.slice(0, 150)}...`}</p>
                             <Link to={post._id}>
