@@ -1,7 +1,7 @@
 
 function DefaultButton({children}: {children: string}) {
     return (
-        <button>{children}</button>
+        <button className="def-button">{children}</button>
     )
 }
 

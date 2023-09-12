@@ -21,9 +21,29 @@ img {
   max-width: 100%;
 }
 
+#root {
+  margin: 1rem 2em 1rem 2rem;
+}
+
+.breakline {
+  border: 0;
+  height: 1px;
+  background: #333;
+  margin-top: 5px;
+  margin-bottom: 1em;
+}
+
 .image-placeholder {
   background-color: variables.$primary;
   min-height: 80px;
   max-width: 100px;
+}
+
+.def-button {
+  border: none;
+  background-color: variables.$secondary;
+  font-size: 1.2rem;
+  border-radius: 11px;
+  padding: 0.2em 0.5em;
 }
 

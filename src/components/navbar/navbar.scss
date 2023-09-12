@@ -1,4 +1,21 @@
 .navbar-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .navbar-icon {
+        height: 55px;
+    }
+}
+
+@media (max-width: 750px) {
+    .navigation-links {
+        display: none;
+    }
+}
+
+@media (min-width: 740px) {
+    .navbar-icon {
+        display: none;
+    }
 }

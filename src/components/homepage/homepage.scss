@@ -1,14 +1,39 @@
 @use "../src/styles/variables";
 
-.topPost-box {
-    border: 1px solid;
-}
 
 .mainPost-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    gap: 0.6em;
     
+    .mainpost-photo {
+        height: 10.5rem;
+        border-radius: 11px;
+        overflow: hidden;
+    }
+
+    h2 {
+    position: absolute;
+    margin-top: 137px;
+    background-color: transparent;
+    letter-spacing: 2px;
+    }
+
+    button {
+        align-self: end;
+    }
+}
+
+.topPost-box {
+    img {
+        border-radius: 11px;
+    }
 }
 
 .topPosts-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+
+    
 }

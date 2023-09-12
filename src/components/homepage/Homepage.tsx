@@ -41,7 +41,9 @@ function Homepage() {
         <>
         {mainPost && 
             <div className="mainPost-container">
-                {mainPost.imageURL ? <img src={mainPost.imageURL} alt=""/> : <div className="image-placeholder" />}
+                <div className="mainpost-photo">
+                    {mainPost.imageURL ? <img src={mainPost.imageURL} alt=""/> : <div className="image-placeholder" />}
+                </div>
                 <h2>{mainPost.title}</h2>
                 <p>{`${mainPost.content.slice(0, 150)}...`}</p>
                 <DefaultButton>Read more</DefaultButton>
@@ -50,6 +52,7 @@ function Homepage() {
         {topPosts &&
             <>
                 <h2>TOP blog posts</h2>
+                <hr className="breakline"></hr>
                 <div className="topPosts-container">
                     {topPosts.map((post) => {
                         return <div className="topPost-box" key={post._id}>
