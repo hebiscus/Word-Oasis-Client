@@ -57,11 +57,11 @@ function Homepage() {
                     {topPosts.map((post) => {
                         return <div className="topPost-box" key={post._id}>
                             {post.imageURL ? <img src={post.imageURL} alt=""/> : <div className="image-placeholder" />}
-                            <h2>{post.title}</h2>
-                            <p>{`${post.content.slice(0, 150)}...`}</p>
-                            <Link to={`posts/${post._id}`}>
+                            <p>{post.title}</p>
+                            <p>{`${post.content.slice(0, 60)}...`}</p>
+                            {/* <Link to={`posts/${post._id}`}>
                                 <button>Read more</button>
-                            </Link>
+                            </Link> */}
                         </div> 
                     })
                     }
