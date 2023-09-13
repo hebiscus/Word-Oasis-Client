@@ -1,4 +1,49 @@
+@use "../src/styles/variables";
+
+.newsletter-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.4em 0;
+
+    input {
+        border: 1px solid black;
+        border-radius: 11px;
+        background-color: white;
+        font-size: 0.9rem;
+        padding: 0.4em;
+    }
+}
+
+.newsletter-box {
+    margin-bottom: variables.$main-margin;
+
+    span {
+        font-size: 1.2rem;
+        font-family: variables.$headers-font;
+    }
+
+    span:last-of-type {
+        font-size: 1rem;
+    }
+}
+
+.footerInfo {
+
+    span {
+        font-size: 1.3rem;
+    }
+}
 
 .footerLinks {
-    display: grid;
+    margin: variables.$main-margin 0;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    thead > tr{
+        border-bottom: 1px solid #333;
+      }
 }

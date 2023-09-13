@@ -6,27 +6,40 @@ function Footer() {
     return (
         <div id="footer">
             <div className="newsletter-box">
-                <h2>Sign up to my newsletter:</h2>
-                <form method="POST" action="">
+                <hr className="breakline"></hr>
+                <span>Sign up to my newsletter:</span>
+                <form method="POST" action="" className="newsletter-form">
                     <input type="email" placeholder="Enter your email"></input>
                     <DefaultButton>Subscribe</DefaultButton>
                 </form>
-                <p>For more literary inspiration</p>
+                <span>For more literary inspiration</span>
             </div>
             <div className="footerInfo">
-                <p>Word Oasis</p>
+                <span>Word Oasis</span>
                 <p>Your place to dive into word's refinement</p>
             </div>
             <div className="footerLinks">
-                <a>About me</a>
-                <a>Resources</a>
-                <a>Social</a>
-                <a>Legal</a>
-                <a>Press</a>
-                <a>News</a>
-                <a>Contact</a>
-                <a>LinkedIn</a>
-                <a>Privacy</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><a>About me</a></td>
+                            <td><a>Social</a></td>
+                            <td><a>Legal</a></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a>Press</a></td>
+                            <td><a>Github</a></td>
+                            <td><a>Terms</a></td>
+                        </tr>
+                        <tr>
+                            <td><a>News</a></td>
+                            <td><a>LinkedIn</a></td>
+                            <td><a>Privacy</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     )
