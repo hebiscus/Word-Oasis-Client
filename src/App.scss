@@ -5,7 +5,6 @@
     font-family: variables.$main-font;
     padding: 0;
     margin: 0;
-    background-color: variables.$background;
     color: variables.$text;
 }
 
@@ -13,6 +12,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: variables.$headers-font;
 }
 
+body {
+  background-color: variables.$background;
+}
+ 
 ol, ul {
     list-style: none;
   }
@@ -23,6 +26,7 @@ img {
 
 #root {
   margin: 1rem 2em 1rem 2rem;
+  
 }
 
 .breakline {

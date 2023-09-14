@@ -6,6 +6,47 @@
     .navbar-icon {
         height: 55px;
     }
+
+   .navbar-button {
+        height: 55px;
+        border: 0;
+    }
+
+}
+
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    width: 40%;
+    top: 0;
+    right: 0;
+    background-color: hsl(209deg 70% 81% / 77%);
+    z-index: 10;
+
+    .sidebar-wrap {
+        display: flex;
+        flex-direction: column;
+
+        button {
+            border: 0;
+            background-color: transparent;
+            align-self: flex-end;
+            padding: 1em 0.4em;
+        }
+    }
+
+    .sidebar-links {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+        margin-left: 0.3em;
+        gap: 0.3em;
+
+        a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+    }
 }
 
 @media (max-width: 750px) {
