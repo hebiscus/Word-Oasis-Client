@@ -10,7 +10,7 @@ function Footer() {
                 <span>Sign up to my newsletter:</span>
                 <form method="POST" action="" className="newsletter-form">
                     <input type="email" placeholder="Enter your email"></input>
-                    <DefaultButton>Subscribe</DefaultButton>
+                    <DefaultButton btnType="submit">Subscribe</DefaultButton>
                 </form>
                 <span>For more literary inspiration</span>
             </div>

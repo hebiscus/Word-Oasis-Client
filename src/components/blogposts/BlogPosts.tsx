@@ -40,7 +40,7 @@ function BlogPosts() {
                             <h3>{post.title}</h3>
                             <p>{`${post.content.slice(0, 150)}...`}</p>
                             <Link to={post._id}>
-                                <DefaultButton>Read more</DefaultButton>
+                                <DefaultButton btnType="button">Read more</DefaultButton>
                             </Link>
                     </div>
                 })}

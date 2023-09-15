@@ -46,7 +46,7 @@ function Homepage() {
                 </div>
                 <h2>{mainPost.title}</h2>
                 <p>{`${mainPost.content.slice(0, 150)}...`}</p>
-                <DefaultButton>Read more</DefaultButton>
+                <DefaultButton btnType="button">Read more</DefaultButton>
             </div>
         }
         {topPosts &&
