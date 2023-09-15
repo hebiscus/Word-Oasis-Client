@@ -3,12 +3,17 @@ import "./footer.scss";
 
 
 function Footer() {
+    
+    function handleNewsletter(event: React.FormEvent) {
+        event.preventDefault();
+    }
+
     return (
         <div id="footer">
             <div className="newsletter-box">
                 <hr className="breakline"></hr>
                 <span>Sign up to my newsletter:</span>
-                <form method="POST" action="" className="newsletter-form">
+                <form onSubmit={handleNewsletter} className="newsletter-form">
                     <input type="email" placeholder="Enter your email"></input>
                     <DefaultButton btnType="submit">Subscribe</DefaultButton>
                 </form>
