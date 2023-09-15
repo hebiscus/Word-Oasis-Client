@@ -12,8 +12,8 @@ function Homepage() {
         async function getPosts() {
             try {
                 const [mainPostResponse, topPostsResponse] = await Promise.all([
-                    fetch("https://word-oasis-api-production.up.railway.app/posts?title=What’s this all about?", { mode: "cors" }),
-                    fetch("https://word-oasis-api-production.up.railway.app/posts?limit=6", { mode: "cors" }),
+                    fetch("https://word-oasis-api-production.up.railway.app/posts?title=What’s this all about?"),
+                    fetch("https://word-oasis-api-production.up.railway.app/posts?limit=6",),
                 ])
                 const mainPost = await mainPostResponse.json();
                 const topPosts = await topPostsResponse.json();
@@ -46,7 +46,9 @@ function Homepage() {
                 </div>
                 <h2>{mainPost.title}</h2>
                 <p>{`${mainPost.content.slice(0, 150)}...`}</p>
-                <DefaultButton btnType="button">Read more</DefaultButton>
+                <Link to={`posts/${mainPost._id}`}>
+                    <DefaultButton btnType="button">Read more</DefaultButton>
+                </Link>
             </div>
         }
         {topPosts &&
