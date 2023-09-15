@@ -2,6 +2,7 @@ import "./blogpost.scss";
 import { useState, useEffect } from "react";
 import { blogPostInterface } from "../../interfaces/interfaces";
 import { Link } from "react-router-dom";
+import DefaultButton from "../defButton";
 
 function BlogPosts() {
     const [allPosts, setAllPosts] = useState<blogPostInterface[] | null>(null)
@@ -36,10 +37,10 @@ function BlogPosts() {
                 {allPosts.map((post) => {
                     return <div className="post-container" key={post._id}>
                             {post.imageURL ? <img src={post.imageURL} /> : <div className="image-placeholder" />}
-                            <h2>{post.title}</h2>
+                            <h3>{post.title}</h3>
                             <p>{`${post.content.slice(0, 150)}...`}</p>
                             <Link to={post._id}>
-                                <button>Read more</button>
+                                <DefaultButton>Read more</DefaultButton>
                             </Link>
                     </div>
                 })}

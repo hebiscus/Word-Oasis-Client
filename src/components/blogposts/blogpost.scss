@@ -1,0 +1,24 @@
+.allPosts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    margin: 1em 0;
+    gap: 0.8em;
+}
+
+.post-container {
+    position: relative;
+
+    img {
+        border-radius: 11px;
+        aspect-ratio: 1.6;
+    }
+
+    > * {
+        margin-top: 0.4em;
+    }
+
+    button {
+        margin-top: 0.4em;
+        float: right;
+    }
+}
