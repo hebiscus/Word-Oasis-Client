@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./blogpost.scss";
 import { blogPostInterface, commentsResInterface, errorMsgInterface } from "../../interfaces/interfaces";
 import { useParams } from "react-router-dom";
+import DefaultButton from "../defButton";
 
 function Blogpost() {
     const { postId } = useParams();
@@ -71,12 +72,13 @@ function Blogpost() {
     })
 
     return (
-        <>
+        <div className="blogpost-main">
             {blogPost && <div className="blogpost-box">
                 <h2>{blogPost.title}</h2>
                 <p>{blogPost.content}</p>
             </div>
             } 
+            <h3>Comments:</h3>
             {comments && <div className="comments-box">
                 {comments.comments.length === 0
                 ? <p>{comments.message}</p>
@@ -87,19 +89,19 @@ function Blogpost() {
                     </div>
                 })}
             </div>
-            }   
-            <h4>Any comments? Share your thoughts:</h4>
-            {errorMessages && errorMessages.map((errMsg) => {
-                return <div key={errMsg.path}>{errMsg.msg}</div>
-            })}
-            <form onSubmit={event => submitComment(event)}>
-                <label htmlFor="author">By:</label>
-                <input type="text" id="author" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor} required />
-                <label htmlFor="comment">Comment:</label>
-                <input type="text" id="comment" onChange={e => setCommentContent(e.target.value)} value={commentContent} required />
-                <button type="submit">Submit comment</button>
-            </form>    
-        </>
+            }
+            <div className="comment-add"> 
+                <h4>Add your own:</h4>
+                {errorMessages && errorMessages.map((errMsg) => {
+                    return <div key={errMsg.path}>{errMsg.msg}</div>
+                })}
+                <form className="comment-form" onSubmit={event => submitComment(event)}>
+                    <input type="text" id="author" placeholder="By:" onChange={e => setCommentAuthor(e.target.value)} value={commentAuthor} required />
+                    <textarea id="comment" placeholder="Comment:" onChange={e => setCommentContent(e.target.value)} value={commentContent} required />
+                    <DefaultButton btnType="submit">Submit comment</DefaultButton>
+                </form>
+            </div>     
+        </div>
     )
 }
 

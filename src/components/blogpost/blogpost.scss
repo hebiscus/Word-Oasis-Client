@@ -1,0 +1,39 @@
+@use "../src/styles/variables";
+
+.blogpost-main {
+    margin: 1em 0;
+
+}
+
+.blogpost-box {
+    margin-bottom: 1em;
+
+    h2 {
+        font-weight: 400;
+        margin-bottom: 0.45em;
+    }
+}
+
+.comments-box {
+    margin: 1em 0;
+}
+
+.comment-add {
+    
+    * {
+        margin-bottom: 0.7em;
+    }
+
+    input, textarea {
+        border: 0;
+        border-radius: 11px;
+        font-size: 1.2rem;
+        padding: 0.3em;
+        background-color: hsl(209deg 75% 81% / 60%);
+        resize: none;
+    }
+}
+
+.comment-form {
+    
+}
