@@ -30,3 +30,8 @@ export interface errorMsgInterface {
     type: string,
     value: string
 }
+
+export interface buttonProps {
+    children: string;
+    btnType: 'submit' | 'reset' | 'button'
+}

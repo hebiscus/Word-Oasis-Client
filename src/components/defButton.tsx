@@ -1,7 +1,14 @@
+import { buttonProps } from "../interfaces/interfaces";
 
-function DefaultButton({children}: {children: string}) {
+
+function DefaultButton({children, btnType}: buttonProps) {
     return (
-        <button className="def-button">{children}</button>
+        <>
+        {btnType 
+            ? <button className="def-button" type={btnType}>{children}</button>
+            : <button className="def-button">{children}</button>
+        }
+        </>
     )
 }
 
