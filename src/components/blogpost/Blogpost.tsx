@@ -63,6 +63,8 @@ function Blogpost() {
             const responseData = await commentsResponse.json();
             if (responseData.errors) {
                     setErrorMessages(responseData.errors);
+            } else {
+                setErrorMessages([]);
             }
             setCommentAuthor("");
             setCommentContent("");
