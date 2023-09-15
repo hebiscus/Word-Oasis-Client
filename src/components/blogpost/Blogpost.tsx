@@ -84,7 +84,7 @@ function Blogpost() {
                 ? <p>{comments.message}</p>
                 : comments.comments.map((comment) => {
                     return <div className="comment-box" key={comment._id}>
-                        <h4>{comment.author}</h4>
+                        <span>{comment.author}</span>
                         <p>{comment.content}</p>
                     </div>
                 })}
