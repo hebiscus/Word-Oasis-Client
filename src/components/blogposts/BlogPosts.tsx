@@ -1,4 +1,4 @@
-import "./blogpost.scss";
+import "./blogposts.scss";
 import { useState, useEffect } from "react";
 import { blogPostInterface } from "../../interfaces/interfaces";
 import { Link } from "react-router-dom";
