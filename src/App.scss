@@ -40,8 +40,15 @@ img {
 
 .image-placeholder {
   background-color: variables.$primary;
-  min-height: 80px;
-  max-width: 100px;
+  border-radius: 11px;
+  height: 13vh;
+  aspect-ratio: 1.55;
+}
+
+.image-placeholder2 {
+  background-color: variables.$primary;
+  border-radius: 11px;
+  aspect-ratio: 1.6;
 }
 
 .def-button {
