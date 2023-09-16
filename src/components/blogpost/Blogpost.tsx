@@ -60,11 +60,17 @@ function Blogpost() {
                 }),
                 headers: { 'Content-Type': 'application/json' },
             })
+            console.log()
             const responseData = await commentsResponse.json();
             if (responseData.errors) {
                     setErrorMessages(responseData.errors);
             } else {
                 setErrorMessages([]);
+                const currentComments = comments!.comments;
+                setComments({
+                    comments: [...currentComments, responseData.comment],
+                    message: comments!.message
+                })
             }
             setCommentAuthor("");
             setCommentContent("");
@@ -85,7 +91,7 @@ function Blogpost() {
                 {comments.comments.length === 0
                 ? <p>{comments.message}</p>
                 : comments.comments.map((comment) => {
-                    return <div className="singe-comment" key={comment._id}>
+                    return <div className="single-comment" key={comment._id}>
                         <span>{comment.author}</span>
                         <p>{comment.content}</p>
                     </div>
