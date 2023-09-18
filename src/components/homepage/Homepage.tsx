@@ -1,12 +1,13 @@
 import "./homepage.scss";
 import { useState, useEffect } from "react";
-import { blogPostInterface } from "../../interfaces/interfaces";
+import { blogPostInterface, blogPostsResInterface} from "../../interfaces/interfaces";
 import DefaultButton from "../defButton";
 import { Link } from "react-router-dom";
 
 function Homepage() {
     const [mainPost, setMainPost] = useState<blogPostInterface | null >(null);
-    const [topPosts, setTopPosts] = useState<blogPostInterface[] | null>(null);
+    const [mainPostMess, setMainPostMess] = useState("");
+    const [topPostsData, setTopPostsData] = useState<blogPostsResInterface | null>(null);
 
     useEffect(() => {
         async function getPosts() {
@@ -15,13 +16,14 @@ function Homepage() {
                     fetch("https://word-oasis-api-production.up.railway.app/posts?title=What’s this all about?"),
                     fetch("https://word-oasis-api-production.up.railway.app/posts?limit=6",),
                 ])
-                const mainPost = await mainPostResponse.json();
-                const topPosts = await topPostsResponse.json();
+                const mainPostData = await mainPostResponse.json();
+                const topPostsData = await topPostsResponse.json();
                 if (!ignore) {
-                    setMainPost(mainPost);
-                    setTopPosts(topPosts);
-                    console.log(mainPost)
-                    console.log(topPosts)
+                    setMainPost(mainPostData.foundPost);
+                    setMainPostMess(mainPostData.message);
+                    setTopPostsData(topPostsData);
+                    console.log(mainPostData)
+                    console.log(topPostsData)
                   }
             } catch(err) {
                 console.log(err);
@@ -39,37 +41,44 @@ function Homepage() {
 
     return (
         <>
-        {mainPost && 
-            <div className="mainPost-container">
-                <div className="mainpost-photo">
-                    {mainPost.imageURL ? <img src={mainPost.imageURL} alt=""/> : <div className="image-placeholder" />}
+            {mainPost
+            ? <div className="mainPost-container">
+                    <div className="mainpost-photo">
+                        {mainPost.imageURL ? <img src={mainPost.imageURL} alt=""/> : <div className="image-placeholder" />}
+                    </div>
+                    <h2>{mainPost.title}</h2>
+                    <p>{`${mainPost.content[0].slice(0, 150)}...`}</p>
+                    <Link to={`posts/${mainPost._id}`}>
+                        <DefaultButton btnType="button">Read more</DefaultButton>
+                    </Link>
                 </div>
-                <h2>{mainPost.title}</h2>
-                <p>{`${mainPost.content.slice(0, 150)}...`}</p>
-                <Link to={`posts/${mainPost._id}`}>
-                    <DefaultButton btnType="button">Read more</DefaultButton>
-                </Link>
+            : <div className="mainPost-container">
+                <div className="mainpost-photo"><div className="image-placeholder" /></div>
+                <h3>{mainPostMess}</h3>
             </div>
-        }
-        {topPosts &&
-            <>
-                <h2>TOP blog posts</h2>
-                <hr className="breakline"></hr>
-                <div className="topPosts-container">
-                    {topPosts.map((post) => {
-                        return <div className="topPost-box" key={post._id}>
-                            {post.imageURL ? <img src={post.imageURL} alt=""/> : <div className="image-placeholder" />}
-                            <p>{post.title}</p>
-                            <p>{`${post.content.slice(0, 60)}...`}</p>
-                            {/* <Link to={`posts/${post._id}`}>
-                                <button>Read more</button>
-                            </Link> */}
-                        </div> 
-                    })
+            }
+            {topPostsData && <>
+                    { topPostsData.foundPosts.length === 0 
+                    ? <div>{topPostsData.message}</div>
+                    : <>
+                        <h2>TOP blog posts</h2>
+                        <hr className="breakline"></hr>
+                        <div className="topPosts-container">
+                            {topPostsData!.foundPosts.map((post) => {
+                                return <div className="topPost-box" key={post._id}>
+                                    {post.imageURL ? <img src={post.imageURL} alt=""/> : <div className="image-placeholder" />}
+                                    <Link to={`posts/${post._id}`}>
+                                        {post.title}
+                                    </Link>
+                                    <p>{`${post.content[0].slice(0, 60)}...`}</p>
+                                </div> 
+                            })
+                            }
+                        </div>
+                    </>
                     }
-                </div>
-            </>
-        }
+                </>
+            }
         </>
     )
 }

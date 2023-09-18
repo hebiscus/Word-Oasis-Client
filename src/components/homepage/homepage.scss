@@ -36,17 +36,18 @@
         aspect-ratio: 1.55;
     }
 
-    p:first-of-type {
+    a {
         position: absolute;
         max-width: 18vh;
         background: transparent;
         color: white;
+        text-decoration: none;
         font-size: 1.1rem;
         margin-top: 5px;
         margin-left: 5px;
     }
 
-    p:last-of-type {
+    .paragraph {
         align-self: center;
     }
 }
