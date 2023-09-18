@@ -1,12 +1,18 @@
+
 export interface blogPostInterface {
     author: string,
     title: string,
-    content: string,
+    content: string[],
     imageURL: string,
     creationDate: string,
     status: string,
     _v: number,
     _id: string
+}
+
+export interface blogPostsResInterface {
+    message: string,
+    foundPosts: blogPostInterface[]
 }
 
 export interface commentsResInterface {
