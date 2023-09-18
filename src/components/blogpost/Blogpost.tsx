@@ -7,6 +7,7 @@ import DefaultButton from "../defButton";
 function Blogpost() {
     const { postId } = useParams();
     const [blogPost, setBlogpPost] = useState<blogPostInterface | null>(null);
+    const [blogPostMessage, setBlogpPostMessage] = useState("")
     const [comments, setComments] = useState<commentsResInterface | null>(null);
     const [commentAuthor, setCommentAuthor] = useState("");
     const [commentContent, setCommentContent] = useState("");
@@ -22,7 +23,8 @@ function Blogpost() {
                 const blogPost = await blogPostResponse.json();
                 const comments = await commentsResponse.json();
                 if (!ignore) {
-                    setBlogpPost(blogPost);
+                    setBlogpPost(blogPost.blogpost);
+                    setBlogpPostMessage(blogPost.message)
                     setComments(comments);
                     console.log(blogPost);
                     console.log(comments);
@@ -81,11 +83,17 @@ function Blogpost() {
 
     return (
         <div className="blogpost-main">
-            {blogPost && <div className="blogpost-box">
+            <div className="blogpost-box">
+            {blogPost
+            ? <>
                 <h2>{blogPost.title}</h2>
-                <p>{blogPost.content}</p>
-            </div>
+                {blogPost.content.map((paragraph) => {
+                    return <p key={paragraph.slice(0,5)}>{paragraph}</p>
+                })}
+              </>
+            : <div>{blogPostMessage}</div>
             } 
+            </div>
             <h3>Comments:</h3>
             {comments && <div className="comments-box">
                 {comments.comments.length === 0
