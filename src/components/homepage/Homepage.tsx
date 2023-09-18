@@ -46,11 +46,13 @@ function Homepage() {
                     <div className="mainpost-photo">
                         {mainPost.imageURL ? <img src={mainPost.imageURL} alt=""/> : <div className="image-placeholder" />}
                     </div>
-                    <h2>{mainPost.title}</h2>
-                    <p>{`${mainPost.content[0].slice(0, 150)}...`}</p>
-                    <Link to={`posts/${mainPost._id}`}>
-                        <DefaultButton btnType="button">Read more</DefaultButton>
-                    </Link>
+                    <div className="mainpost-text">
+                        <h2>{mainPost.title}</h2>
+                        <p>{`${mainPost.content[0].slice(0, 150)}...`}</p>
+                        <Link to={`posts/${mainPost._id}`}>
+                            <DefaultButton btnType="button">Read more</DefaultButton>
+                        </Link>
+                    </div>
                 </div>
             : <div className="mainPost-container">
                 <div className="mainpost-photo"><div className="image-placeholder" /></div>

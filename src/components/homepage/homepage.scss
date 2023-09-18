@@ -8,16 +8,21 @@
     gap: 0.6em;
     
     .mainpost-photo {
-        height: 10.5rem;
+        aspect-ratio: 1.65;
         border-radius: 11px;
         overflow: hidden;
     }
 
+    .mainpost-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     h2 {
-    position: absolute;
-    margin-top: 137px;
-    background-color: transparent;
-    letter-spacing: 2px;
+    // position: absolute;
+    // margin-top: 137px;
+    letter-spacing: 1px;
     }
 
     a {
@@ -32,13 +37,13 @@
 
     img {
         border-radius: 11px;
-        height: 13vh;
+        max-width: 60%;
         aspect-ratio: 1.55;
     }
 
     a {
         position: absolute;
-        max-width: 18vh;
+        max-width: 60%;
         background: transparent;
         color: white;
         text-decoration: none;
@@ -47,18 +52,34 @@
         margin-left: 5px;
     }
 
-    .paragraph {
+    p {
         align-self: center;
     }
 }
 
 .topPosts-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 1em;
     margin-bottom: 1em;
     
     div:first-child > img {
         transform: rotate(180deg);
+    }
+}
+
+@media (min-width: 500px) {
+    html {
+        font-size: 18px;
+      }
+}
+
+@media (min-width: 700px) {
+    .mainPost-container { 
+        flex-direction: row;
+
+        .mainpost-photo {
+            max-width: 53%;
+        }
     }
 }
