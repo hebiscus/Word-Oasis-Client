@@ -16,7 +16,6 @@
 }
 
 .newsletter-box {
-    margin-bottom: variables.$main-margin;
 
     span {
         font-size: 1.2rem;
@@ -29,6 +28,7 @@
 }
 
 .footerInfo {
+    margin: variables.$main-margin;
 
     span {
         font-size: 1.3rem;
@@ -37,6 +37,7 @@
 
 .footerLinks {
     margin: variables.$main-margin 0;
+    max-width: 450px;
 
     table {
         width: 100%;
@@ -46,4 +47,11 @@
     thead > tr{
         border-bottom: 1px solid #333;
       }
+}
+
+@media (min-width: 500px) {
+    .newsletter-form {
+        justify-content: flex-start;
+        gap: 0.6em;
+    }
 }

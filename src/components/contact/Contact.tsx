@@ -21,6 +21,7 @@ function Contact() {
                     <span>(don't forget about the comma at the end)</span>
                 </div>
             </div>
+            <img src="../lines.svg" id="weird-waves"></img>
         </div>
     )
 }

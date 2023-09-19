@@ -30,7 +30,7 @@ img {
 }
 
 #root {
-  margin: 1rem 2em 1rem 2rem;
+  margin: 1em 2em
 }
 
 .breakline {
@@ -60,5 +60,62 @@ img {
   font-size: 1.2rem;
   border-radius: 11px;
   padding: 0.2em 0.5em;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
+
+@media (min-width: 500px) {
+  html {
+      font-size: 18px;
+    }
+}
+
+@media (min-width: 750px) {
+  #root {
+    margin: 1.5em 3em;
+  }
+}
+
+@media (min-width: 1000px) {
+  #root {
+    margin: 2em 5em;
+  }
+
+  html {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1300px) {
+  #root {
+    margin: 2em 8em;
+  }
+
+  html {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #root {
+    margin: 2em 8em;
+  }
+
+  html {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1800px) {
+  #root {
+    margin: 2em 8.5em;
+  }
+
+  html {
+    font-size: 24px;
+  }
+}
+
 

@@ -22,7 +22,6 @@ function Navbar() {
                             <NavLink to="/">Home</NavLink>
                             <NavLink to="/posts">All posts</NavLink>
                             <NavLink to="/contact">Contact</NavLink>
-                            <a href="#footer">Subscribe</a>
                         </ul>
                     </div>
                 </nav>}
@@ -30,7 +29,6 @@ function Navbar() {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/posts">All posts</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
-                    <a href="#footer">Subscribe</a>
                 </ul>
             </nav>
         </div>

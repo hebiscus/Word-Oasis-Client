@@ -4,24 +4,23 @@
 .mainPost-container {
     display: flex;
     flex-direction: column;
-    margin: 1em 0;
+    margin: variables.$main-margin;
     gap: 0.6em;
     
     .mainpost-photo {
+        flex-grow: 2;
         aspect-ratio: 1.65;
         border-radius: 11px;
-        overflow: hidden;
     }
 
     .mainpost-text {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        max-width: 750px;
     }
 
     h2 {
-    // position: absolute;
-    // margin-top: 137px;
     letter-spacing: 1px;
     }
 
@@ -43,13 +42,15 @@
 
     a {
         position: absolute;
-        max-width: 60%;
+        max-width: 13%;
         background: transparent;
         color: white;
         text-decoration: none;
         font-size: 1.1rem;
         margin-top: 5px;
         margin-left: 5px;
+        text-shadow: 1px 1px black;
+        font-weight: 500;
     }
 
     p {
@@ -59,19 +60,13 @@
 
 .topPosts-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
     gap: 1em;
-    margin-bottom: 1em;
+    margin: variables.$main-margin;
     
     div:first-child > img {
         transform: rotate(180deg);
     }
-}
-
-@media (min-width: 500px) {
-    html {
-        font-size: 18px;
-      }
 }
 
 @media (min-width: 700px) {
@@ -79,7 +74,29 @@
         flex-direction: row;
 
         .mainpost-photo {
-            max-width: 53%;
+            min-width: 45%;
         }
+    }
+
+    .topPosts-container {
+        gap: 2em;
+    }
+}
+
+@media (min-width: 1600px) {
+    .mainPost-container {
+        margin: variables.$bigger-margin;
+
+        .mainpost-photo {
+            aspect-ratio: 1.95;
+        }
+
+        .mainpost-text {
+            justify-content: flex-start;
+        }
+    }
+
+    .topPosts-container {
+        margin: 2em 0;
     }
 }

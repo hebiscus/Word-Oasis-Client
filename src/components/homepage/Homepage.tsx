@@ -43,12 +43,12 @@ function Homepage() {
         <>
             {mainPost
             ? <div className="mainPost-container">
-                    <div className="mainpost-photo">
-                        {mainPost.imageURL ? <img src={mainPost.imageURL} alt=""/> : <div className="image-placeholder" />}
-                    </div>
+                    {/* <div className="mainpost-photo"> */}
+                        {mainPost.imageURL ? <img src={mainPost.imageURL} alt="" className="mainpost-photo"/> : <div className="image-placeholder" />}
+                    {/* </div> */}
                     <div className="mainpost-text">
                         <h2>{mainPost.title}</h2>
-                        <p>{`${mainPost.content[0].slice(0, 150)}...`}</p>
+                        <p>{`${mainPost.content[0].concat(mainPost.content[1]).slice(0, 260)}...`}</p>
                         <Link to={`posts/${mainPost._id}`}>
                             <DefaultButton btnType="button">Read more</DefaultButton>
                         </Link>

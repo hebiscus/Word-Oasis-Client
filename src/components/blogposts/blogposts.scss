@@ -1,7 +1,9 @@
+@use "../src/styles/variables";
+
 .allPosts-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
-    margin: 1em 0;
+    grid-template-columns: repeat(auto-fill, minmax(min(327px, 100%), 1fr));
+    margin: variables.$main-margin;
     gap: 0.8em;
 }
 
@@ -24,5 +26,17 @@
 
     p {
         word-wrap: break-word;
+    }
+}
+
+@media (min-width: 800px) {
+    .allPosts-container {
+        gap: 2em;
+    }
+}
+
+@media (min-width: 1600px) { 
+    .allPosts-container {
+        margin: variables.$bigger-margin;
     }
 }

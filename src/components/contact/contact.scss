@@ -1,6 +1,7 @@
+@use "../src/styles/variables";
 
 .contact-main {
-    margin: 1em 0;
+    margin: variables.$main-margin;
 
     img {
         width: 20%;
@@ -9,13 +10,11 @@
     }
 
     p {
-        font-size: 1.2rem;
         margin-bottom: 0.8em;
     }
 
     a, span {
         display: block;
-        font-size: 1.2rem;
     }
 
     span:last-of-type {
@@ -30,5 +29,18 @@
         > * {
             margin: 0.1em 0;
         }
+    }
+}
+
+#weird-waves {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 2em 0;
+}
+
+@media (min-width: 1600px) { 
+    .contact-main {
+        margin: variables.$bigger-margin;
     }
 }

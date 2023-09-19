@@ -3,6 +3,15 @@
     justify-content: space-between;
     align-items: center;
 
+    .navigation-links {
+        font-size: 1.2rem;
+
+        > * {
+            margin-inline: 0.5em;
+            text-decoration: none;
+        }
+    }
+
     .navbar-icon {
         height: 55px;
     }
@@ -53,11 +62,13 @@
 @media (max-width: 750px) {
     .navigation-links {
         display: none;
+        
     }
+
 }
 
-@media (min-width: 740px) {
-    .navbar-icon {
+@media (min-width: 750px) {
+    .navbar-button {
         display: none;
     }
 }
