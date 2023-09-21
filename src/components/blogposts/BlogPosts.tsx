@@ -16,7 +16,6 @@ function BlogPosts() {
                 if (!ignore) {
                     setAllPosts(allPosts.foundPosts);
                     setAllPostsMessage(allPosts.message);
-                    console.log(allPosts);
                 }
             } catch(err) {
                 console.log(err)

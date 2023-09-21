@@ -22,8 +22,6 @@ function Homepage() {
                     setMainPost(mainPostData.foundPost);
                     setMainPostMess(mainPostData.message);
                     setTopPostsData(topPostsData);
-                    console.log(mainPostData)
-                    console.log(topPostsData)
                   }
             } catch(err) {
                 console.log(err);

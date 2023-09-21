@@ -26,8 +26,6 @@ function Blogpost() {
                     setBlogpPost(blogPost.blogpost);
                     setBlogpPostMessage(blogPost.message)
                     setComments(comments);
-                    console.log(blogPost);
-                    console.log(comments);
                 }
             } catch(err) {
                 console.log(err);
@@ -46,12 +44,7 @@ function Blogpost() {
 
     const submitComment = (async(event: React.FormEvent) => {
         event.preventDefault();
-        console.log(commentAuthor);
-        console.log(commentContent);
-        if (!commentAuthor || !commentContent) {
-            console.log("returned")
-            return
-        }
+        if (!commentAuthor || !commentContent) return
         
         try {
             const commentsResponse = await fetch(`https://word-oasis-api-production.up.railway.app/posts/${postId}/comments`, {
@@ -62,7 +55,6 @@ function Blogpost() {
                 }),
                 headers: { 'Content-Type': 'application/json' },
             })
-            console.log()
             const responseData = await commentsResponse.json();
             if (responseData.errors) {
                     setErrorMessages(responseData.errors);
