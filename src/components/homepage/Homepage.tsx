@@ -66,10 +66,12 @@ function Homepage() {
                         <div className="topPosts-container">
                             {topPostsData!.foundPosts.map((post) => {
                                 return <div className="topPost-box" key={post._id}>
-                                    {post.imageURL ? <img src={post.imageURL} alt=""/> : <div className="image-placeholder" />}
-                                    <Link to={`posts/${post._id}`}>
-                                        {post.title}
-                                    </Link>
+                                    <div>
+                                        {post.imageURL ? <img src={post.imageURL} alt=""/> : <div className="image-placeholder" />}
+                                        <Link to={`posts/${post._id}`}>
+                                            {post.title}
+                                        </Link>
+                                    </div>
                                     <p>{`${post.content[0].slice(0, 60)}...`}</p>
                                 </div> 
                             })

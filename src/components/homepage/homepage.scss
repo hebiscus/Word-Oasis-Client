@@ -33,16 +33,18 @@
     display: flex;
     gap: 10px;
 
+    div {
+        display: grid;
+        position: relative;
+    }
 
     img {
         border-radius: 11px;
-        max-width: 60%;
         aspect-ratio: 1.55;
     }
 
     a {
         position: absolute;
-        max-width: 13%;
         background: transparent;
         color: white;
         text-decoration: none;

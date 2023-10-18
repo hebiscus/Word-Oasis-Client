@@ -118,4 +118,14 @@ img {
   }
 }
 
+@media (min-width: 2000px) {
+  #root {
+    margin: 2em 9em;
+  }
+
+  html {
+    font-size: 26px;
+  }
+}
+
 
