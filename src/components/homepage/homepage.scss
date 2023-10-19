@@ -63,7 +63,7 @@
 
 .topPosts-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
     gap: 1em;
     margin: variables.$main-margin;
     
@@ -90,12 +90,9 @@
     .mainPost-container {
         margin: variables.$bigger-margin;
 
-        .mainpost-photo {
-            aspect-ratio: 1.95;
-        }
-
         .mainpost-text {
             justify-content: flex-start;
+            gap: 10px;
         }
     }
 
