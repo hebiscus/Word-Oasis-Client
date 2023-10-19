@@ -14,7 +14,7 @@ function Footer() {
                 <hr className="breakline"></hr>
                 <span>Sign up to my newsletter:</span>
                 <form onSubmit={handleNewsletter} className="newsletter-form">
-                    <input type="email" placeholder="Enter your email"></input>
+                    <input type="email" name="newsletter-input" placeholder="Enter your email"></input>
                     <DefaultButton btnType="submit">Subscribe</DefaultButton>
                 </form>
                 <span>For more literary inspiration</span>
