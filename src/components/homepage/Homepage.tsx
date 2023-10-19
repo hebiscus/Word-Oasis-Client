@@ -17,7 +17,6 @@ function Homepage() {
                     axios.get("https://word-oasis-api-production.up.railway.app/posts?title=What’s this all about?"),
                     axios.get("https://word-oasis-api-production.up.railway.app/posts?limit=6",),
                 ])
-                console.log(mainPostResponse)
                 const mainPostData = mainPostResponse.data;
                 const topPostsData = topPostsResponse.data;
                 if (!ignore) {
