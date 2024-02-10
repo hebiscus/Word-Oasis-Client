@@ -1,5 +1,5 @@
 # Word Oasis Client
-Live link: https://word-oasis.vercel.app/
+Live link: ~https://word-oasis.vercel.app/~ <b>no funds for hosting</b>
 ## Summary:
 Word Oasis is a personal blog where I share my literary endevours. <br>
 Everyone is able to share their opinion under each blog post in comments, without the need to login. <br><br>
